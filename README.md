@@ -60,7 +60,7 @@ spring mybatis jsp ajax
 
  菜鸟一个，望各位大神多多指导！互相学习进步！
 
-<a href= "http://www.whaifree.top)">whai的博客 whaifree.top 欢迎留言！</a>
+<a href= "http://www.whaifree.top">whai的博客 whaifree.top 欢迎留言！</a>
 
 ![ModestWhai](https://gitee.com/lkwhai/image-resp/raw/master/2020/qrcode1641966581958.jpg)
 
