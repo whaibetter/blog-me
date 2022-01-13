@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PersistentConfig">
+    <option name="historyConfigList">
+      <map>
+        <entry key="article">
+          <value>
+            <Config>
+              <option name="annotationDAO" value="true" />
+              <option name="comment" value="true" />
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="ArticleMapper" />
+              <option name="daoPackage" value="cn.blog.mapper" />
+              <option name="daoPostfix" value="Mapper" />
+              <option name="daoTargetFolder" value="$PROJECT_DIR$/src/main/java/cn/blog/mapper" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="Article" />
+              <option name="modelPackage" value="cn.blog.entity" />
+              <option name="modelTargetFolder" value="$PROJECT_DIR$/src/main/java/cn/blog/entity" />
+              <option name="name" value="article" />
+              <option name="needForUpdate" value="true" />
+              <option name="needToStringHashcodeEquals" value="true" />
+              <option name="offsetLimit" value="true" />
+              <option name="overrideXML" value="true" />
+              <option name="primaryKey" value="article_id" />
+              <option name="projectFolder" value="$PROJECT_DIR$" />
+              <option name="tableName" value="article" />
+              <option name="useExample" value="true" />
+              <option name="useSchemaPrefix" value="true" />
+              <option name="useTableNameAlias" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="generator" />
+              <option name="xmlTargetFolder" value="E:\javaProject\WebHomeWork\BlogMe\src\main\resources\mapper" />
+            </Config>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

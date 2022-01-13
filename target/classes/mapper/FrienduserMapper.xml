@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.blog.mapper.FrienduserMapper">
+  <resultMap id="BaseResultMap" type="cn.blog.entity.Frienduser">
+    <id column="frienduser_user_id" jdbcType="INTEGER" property="userId" />
+    <result column="frienduser_friend_userid" jdbcType="INTEGER" property="friendUserid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    frienduser.user_id as frienduser_user_id, frienduser.friend_userid as frienduser_friend_userid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from frienduser frienduser
+    where frienduser.user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <!--看看我有没有这个好友-->
+  <select id="selectFriendBind" parameterType="cn.blog.entity.Frienduser" resultType="java.lang.Integer">
+    select
+    count(*)
+    from frienduser
+    where user_id = #{userId,jdbcType=INTEGER} and friend_userid = #{friendUserid,jdbcType=INTEGER}
+  </select>
+  <select id="selectFriendIdByUserId" resultType="java.lang.Integer">
+    select
+        frienduser.friend_userid
+    from frienduser frienduser
+    where frienduser.user_id = #{userId,jdbcType=INTEGER}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from frienduser
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteFriend" parameterType="cn.blog.entity.Frienduser">
+    delete from frienduser
+    where user_id = #{userId,jdbcType=INTEGER} and friend_userid = #{friendUserid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insertFriend" parameterType="cn.blog.entity.Frienduser" >
+    insert into frienduser (user_id, friend_userid)
+    values (#{userId,jdbcType=INTEGER},#{friendUserid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="user_id" keyProperty="userId" parameterType="cn.blog.entity.Frienduser" useGeneratedKeys="true">
+    insert into frienduser
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="friendUserid != null">
+        friend_userid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="friendUserid != null">
+        #{friendUserid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.blog.entity.Frienduser">
+    update frienduser
+    <set>
+      <if test="friendUserid != null">
+        friend_userid = #{friendUserid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.blog.entity.Frienduser">
+    update frienduser
+    set friend_userid = #{friendUserid,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>
